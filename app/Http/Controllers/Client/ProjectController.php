@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $projects = Project::where('status', true)->paginate(1);
+        $projects = Project::where('status', true)->paginate(9);
 
 
         return view('client.pages.project.index', [

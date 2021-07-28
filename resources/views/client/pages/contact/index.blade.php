@@ -12,9 +12,15 @@
         <a href="#">{{$gphone->language(app()->getLocale())? $gphone->language(app()->getLocale())->value: $gphone->language()->value}}</a>
         <a href="#"> {{$gemail->language(app()->getLocale())? $gemail->language(app()->getLocale())->value: $gemail->language()->value}}</a>
         <div class="flex center">
-            <a href="#"><img src="/client/img/icons/sm/1.png" alt="" /></a>
-            <a href="#"><img src="/client/img/icons/sm/2.png" alt="" /></a>
-            <a href="#"><img src="/client/img/icons/sm/3.png" alt="" /></a>
+            <a href="https://{{$facebook->language(app()->getLocale())? $facebook->language(app()->getLocale())->value: $facebook->language()->value}}">
+                <img src="/client/img/icons/sm/1.png" alt=""/>
+            </a>
+            <a href="https://{{$twitter->language(app()->getLocale())? $twitter->language(app()->getLocale())->value: $twitter->language()->value}}">
+                <img src="/client/img/icons/sm/2.png" alt=""/>
+            </a>
+            <a href="https://{{$instagram->language(app()->getLocale())? $instagram->language(app()->getLocale())->value: $instagram->language()->value}}">
+                <img src="/client/img/icons/sm/3.png" alt=""/>
+            </a>
         </div>
     </div>
 @endsection

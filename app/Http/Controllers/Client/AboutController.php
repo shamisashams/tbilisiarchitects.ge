@@ -13,10 +13,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $certificates = Certificate::where('status',true)->limit(12)->get();
-
         return view('client.pages.about.index', [
-            'certificates' => $certificates
         ]);
     }
 }

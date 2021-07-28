@@ -5,70 +5,32 @@
           content="@lang('client.project_meta_description')">
 @endsection
 @section('wrapper')
-    <section class="every_showcase projects">
-        <div class="overlay">
-            <div class="wrapper content">
-                <div class="path">@lang('client.home') - @lang('client.project')</div>
-                <div class="title">@lang('client.projects')</div>
-            </div>
-        </div>
-    </section>
-    <section class="projects_page wrapper flex">
-        <div class="filters">
-            <div class="city">@lang('client.city')</div>
-            <button onclick="location.href = '{{locale_route('client.project.index')}}'"
-                    class="project_filter {{Request::get('city') ? '' : 'active'}}">@lang('client.all')</button>
-            @foreach($cities as $city)
-                <button onclick="location.href = '{{locale_route('client.project.index')}}?city={{$city->id}}'"
-                        class="project_filter {{Request::get('city') == $city->id ? 'active' : ''}}">
-                    {{$city->language(app()->getLocale())? $city->language(app()->getLocale())->title: $city->language()->title}}
-                </button>
+    <div class="project_page">
+        <div class="project_grid">
+            @foreach($projects as $project)
+                <a href="{{locale_route('client.project.details',$project->id)}}" class="item">
+                    <div class="img">
+                        @if(count($project->files)>0)
+                            <img src="{{url($project->files[0]->path . '/'.$project->files[0]->title)}}" alt=""/>
+                        @else
+                            <img src="/noimage.png" alt=""/>
+                        @endif
+                    </div>
+                    <div class="title">{{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}</div>
+                    <div class="paragraph">
+                        {!!$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title!!}
+                    </div>
+                </a>
             @endforeach
         </div>
-        <div class="pgdiv">
-            <div class="title">@lang('client.projects')</div>
-            <div class="project_grid_tab active">
-                @foreach($projects as $project)
-                    <div class="project_view_pp">
-                        <img src="{{url(count($project->files) ? $project->files[0]->path . '/'.$project->files[0]->title : '')}}"
-                             alt="">
-                        <div class="cap">
-                            <span>
-                            {{$project->city->language(app()->getLocale())? $project->city->language(app()->getLocale())->title: $project->city->language()->title}}
-                            </span>
-                            {{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}
-                        </div>
-                    </div>
-                @endforeach
 
-
-            </div>
-            {{ $projects->appends(request()->input())->links('client.pagination') }}
-        </div>
-    </section>
-
-    @foreach($projects as $project)
-        <div class="project_popup">
-            <button class="close_popup">
-                <img src="/client/img/icons/other/close.svg" alt="">
-            </button>
-            <div class="main_img_placeholder">
-                @foreach($project->files as $key => $file)
-                    <div class="popup_main_img {{$key === 0 ? 'active' : ''}}">
-                        <img src="{{url($file->path . '/'.$file->title)}}" alt="">
-                        <div class="caption flex">
-                            {{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <div>
-                @foreach($project->files as $key => $file)
-                    <div class="img_options {{$key === 0 ? 'active' : ''}}">
-                        <img src="{{url($file->path . '/'.$file->title)}}" alt="">
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    @endforeach
+        {{$projects->links('vendor.pagination.custom')}}
+{{--        <div class="pagination_arrows flex center">--}}
+{{--            <button><img src="/client/img/icons/arrows/1.png" alt=""/></button>--}}
+{{--            <button><img src="/client/img/icons/arrows/2.png" alt=""/></button>--}}
+{{--        </div>--}}
+{{--        <div class="pagination">--}}
+{{--            <span class="current">1</span> / <span class="total">10</span>--}}
+{{--        </div>--}}
+    </div>
 @endsection

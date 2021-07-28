@@ -65,6 +65,14 @@ class News extends Model
             'title' => [
                 'hasParam' => true,
                 'scopeMethod' => 'titleLanguage'
+            ],
+            'description' => [
+                'hasParam' => true,
+                'scopeMethod' => 'description'
+            ],
+            'content' => [
+                'hasParam' => true,
+                'scopeMethod' => 'content'
             ]
         ];
     }

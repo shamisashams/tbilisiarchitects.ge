@@ -190,6 +190,33 @@ trait ScopeFilter
 
     /**
      * @param $query
+     * @param $description
+     *
+     * @return mixed
+     */
+    public function scopeDescription($query, $description)
+    {
+        return $query->whereHas('languages', function ($query) use ($description) {
+            return $query->where('description', 'like', '%' . $description . '%');
+        });
+    }
+
+
+    /**
+     * @param $query
+     * @param $content
+     *
+     * @return mixed
+     */
+    public function scopeContent($query, $content)
+    {
+        return $query->whereHas('languages', function ($query) use ($content) {
+            return $query->where('content', 'like', '%' . $content . '%');
+        });
+    }
+
+    /**
+     * @param $query
      * @param $search
      *
      * @return mixed

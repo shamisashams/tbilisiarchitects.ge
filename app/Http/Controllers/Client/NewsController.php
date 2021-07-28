@@ -9,17 +9,17 @@ use App\Models\Project;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class NewsController extends Controller
 {
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function view(string $locale,int $id)
     {
-        $news = News::where('status', true)->with('languages')->take(3)->get();
+        $news = News::where(['id' => $id, 'status' => true])->with('languages')->first();
 
-        return view('client.pages.home.index', [
+        return view('client.pages.news.details', [
             'news' => $news,
         ]);
     }

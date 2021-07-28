@@ -23,7 +23,7 @@
                         @foreach($languages as $key => $language)
                             <div id="lang-{{$key}}" class="col s12  mt-5">
                                 <div class="input-field ">
-                                    {!! Form::text('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'validate '. $errors->has('text.*') ? '' : 'valid']) !!}
+                                    {!! Form::textarea('text['.$key.']',isset($translation->text[$key]) ? $translation->text[$key]:  '',['class' => 'materialize-textarea validate '. ($errors->has('text.*') ? '' : 'valid')]) !!}
                                     {!! Form::label('text['.$key.']',__('admin.text')) !!}
                                     @error('text.*')
                                     <small class="errorTxt4">

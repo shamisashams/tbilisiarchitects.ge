@@ -1,7 +1,7 @@
 {{-- extend layout --}}
 @extends('admin.layout.contentLayoutMaster')
 {{-- page value --}}
-@section('value', $setting->language()->value)
+@section('value', $setting->language(app()->getLocale())? $setting->language(app()->getLocale())->value: $setting->language()->value)
 
 
 

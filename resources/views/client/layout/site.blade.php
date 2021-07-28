@@ -2,11 +2,12 @@
 
 @section('head')
     <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <link rel="stylesheet" href="{{ asset('../client/style.css?v=5') }}" />
+    <link rel="stylesheet" href="/client/style.css" />
+    <title>Tbilisi Architect</title>
     @yield('subhead')
 @endsection
 
@@ -14,8 +15,6 @@
     @include('client.layout.partial.header')
 
     @yield('wrapper')
-
-    @include('client.layout.partial.footer')
 
     <script
             type="text/javascript"

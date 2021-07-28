@@ -1,64 +1,34 @@
-$(".history_slide").slick({
-  draggable: true,
-  arrows: false,
-  dots: true,
-  speed: 900,
-  autoplay: false,
-  infinite: false,
-  cssEase: "linear",
-  touchThreshold: 100,
-});
-
-$(".company_certificate_slide").slick({
-  slidesToShow: 6,
+$(".news_vertical_slider").slick({
+  slidesToShow: 1,
   slidesToScroll: 1,
   draggable: true,
   arrows: true,
-  prevArrow: "#prev_certify",
-  nextArrow: "#next_certify",
-  dots: false,
-  speed: 200,
-  autoplay: false,
+  prevArrow: "#prev_news",
+  nextArrow: "#next_news",
+  dots: true,
+  speed: 900,
   infinite: true,
-  cssEase: "linear",
+  touchThreshold: 100,
+  variableHeights: true,
+  vertical: true,
   responsive: [
     {
-      breakpoint: 1200,
+      breakpoint: 1050,
       settings: {
-        slidesToShow: 4,
-      },
-    },
-    {
-      breakpoint: 1000,
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-    {
-      breakpoint: 700,
-      settings: {
-        slidesToShow: 2,
-      },
-    },
-    {
-      breakpoint: 500,
-      settings: {
-        slidesToShow: 1,
+        vertical: false,
       },
     },
   ],
 });
-
-$(".pagination_slider").slick({
-  slidesToShow: 4,
+$(".project_details_slider").slick({
+  slidesToShow: 1,
   slidesToScroll: 1,
-  draggable: false,
+  draggable: true,
   arrows: true,
-  prevArrow: "#prev_pag",
-  nextArrow: "#next_pag",
+  prevArrow: "#prev_content",
+  nextArrow: "#next_content",
   dots: false,
-  speed: 100,
-  autoplay: false,
-  infinite: false,
-  cssEase: "linear",
+  speed: 900,
+  infinite: true,
+  touchThreshold: 100,
 });

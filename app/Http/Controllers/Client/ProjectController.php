@@ -14,18 +14,18 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $projects = Project::where('status', true)->whereHas('city')->with(['city' => function ($query) {
-                $query->where('status', true);
-        }]);
+        $projects = Project::where('status', true)->paginate(1);
 
-        if ($request->filled('city')) {
-            $projects = $projects->where('city_id',(int)$request['city']);
-        }
-        $cities = City::where('status',true)->get();
 
         return view('client.pages.project.index', [
-            'projects' => $projects->paginate(1),
-            'cities' => $cities
+            'projects' => $projects
+        ]);
+    }
+
+    public function view(string $locale,int $id){
+        $project=Project::where(['id'=>$id,'status'=>true])->first();
+        return view('client.pages.project.details', [
+            'project' => $project
         ]);
     }
 }

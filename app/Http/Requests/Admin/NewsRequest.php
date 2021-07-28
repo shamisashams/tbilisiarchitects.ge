@@ -46,7 +46,7 @@ class NewsRequest extends FormRequest
         if ($this->method !== 'GET') {
             $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
             $data ['description.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['content.' . $defaultLanguage->id] = 'required|string|max:2048';
+            $data ['content.' . $defaultLanguage->id] = 'required|string|max:1024';
 
         }
         return $data;

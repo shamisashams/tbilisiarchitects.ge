@@ -34,21 +34,26 @@
             </svg>
         </button>
         <div class="news_vertical_slider flex center">
-            @foreach($news as $singleNews)
+            @foreach($news as $key=>$singleNews)
                 <div class="slide">
                     <div class="img">
                         @if(count($singleNews->files)>0)
                             <img src="{{url($singleNews->files[0]->path . '/'.$singleNews->files[0]->title)}}" alt=""/>
+                        @else
+                            <img src="/noimage.png" alt=""/>
                         @endif
                     </div>
-                    <a style="outline: none" href="{{locale_route('news.details',$singleNews->id)}}">
-                        <div
-                            class="title"> {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}</div>
+                    <a class="title" style="outline: none" href="{{locale_route('news.details',$singleNews->id)}}">
+                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}
                     </a>
                     <div class="paragraph">
                         {!!$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description!!}
                     </div>
-                    <a href="news.html" class="see_all" style="opacity: 0">See all</a>
+                    @if($key==count($news)-1)
+                        <a href="{{locale_route('client.news.index')}}" class="see_all">See all</a>
+                    @else
+                        <a href="{{locale_route('client.news.index')}}" class="see_all" style="opacity: 0">See all</a>
+                    @endif
                 </div>
             @endforeach
         </div>

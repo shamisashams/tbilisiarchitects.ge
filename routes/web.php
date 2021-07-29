@@ -66,10 +66,11 @@ Route::prefix('{locale?}')
         });
 
         Route::get('', [HomeController::class, 'index'])->name('home.index');
-        Route::get('news-details/{id}', [\App\Http\Controllers\Client\NewsController::class, 'view'])->name('news.details');
+        Route::get('news/details/{id}', [\App\Http\Controllers\Client\NewsController::class, 'view'])->name('news.details');
+        Route::get('news', [\App\Http\Controllers\Client\NewsController::class, 'index'])->name('client.news.index');
 
         Route::get('projects', [App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
-        Route::get('project-details/{id}', [App\Http\Controllers\Client\ProjectController::class, 'view'])->name('client.project.details');
+        Route::get('projects/details/{id}', [App\Http\Controllers\Client\ProjectController::class, 'view'])->name('client.project.details');
 
         Route::get('about', [\App\Http\Controllers\Client\AboutController::class, 'index'])->name('client.about');
 
@@ -78,7 +79,7 @@ Route::prefix('{locale?}')
 
 //        Route::match(['get', 'post'], 'contact', [\App\Http\Controllers\Client\ContactController::class, 'index'])->name('contact.index');
 
-        Route::get('about-us', [\App\Http\Controllers\Client\AboutController::class, 'index'])->name('about.index');
+//        Route::get('about-us', [\App\Http\Controllers\Client\AboutController::class, 'index'])->name('about.index');
 
 
     });

@@ -31,7 +31,7 @@
                     </div>
                     <div class="title">{{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}</div>
                     <div class="paragraph">
-                        {!!$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title!!}
+                        {{$project->language(app()->getLocale())? $project->language(app()->getLocale())->description: $project->language()->description}}
                     </div>
                 </a>
             @endforeach

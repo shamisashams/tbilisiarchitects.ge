@@ -2,7 +2,7 @@
 @extends('admin.layout.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title',__('admin.project'))
+@section('title',__('admin.news'))
 
 
 @section('content')

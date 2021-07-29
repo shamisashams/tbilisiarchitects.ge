@@ -6,6 +6,7 @@
  * Time: 14:16
  * @author Vito Makhatadze <vitomaxatadze@gmail.com>
  */
+
 namespace App\Models;
 
 use App\Traits\ScopeFilter;
@@ -13,6 +14,7 @@ use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use function PHPUnit\Framework\throwException;
 
 /**
  * Class Language
@@ -28,7 +30,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Language extends Model
 {
-    use HasFactory, softDeletes, ScopeFilter,FormAccessible;
+    use HasFactory, softDeletes, ScopeFilter, FormAccessible;
 
     /**
      * The table associated with the model.
@@ -64,6 +66,15 @@ class Language extends Model
                 'scopeMethod' => 'status'
             ]
         ];
+    }
+
+    public static function getLocaleById(int $id)
+    {
+        $localization = Language::where('id', $id)->first();
+        if ($localization == null) {
+            throwException('Localization not exist.');
+        }
+        return $localization->locale;
     }
 
 }

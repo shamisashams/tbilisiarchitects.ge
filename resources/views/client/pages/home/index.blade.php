@@ -47,7 +47,7 @@
                         {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}
                     </a>
                     <div class="paragraph">
-                        {!!$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description!!}
+                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description}}
                     </div>
                     @if($key==count($news)-1)
                         <a href="{{locale_route('client.news.index')}}" class="see_all">See all</a>

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = News::where('status', true)->with('languages')->take(3)->get();
+        $news = News::where('status', true)->with('languages')->orderBy('created_at', 'desc')->take(3)->get();
 
         return view('client.pages.home.index', [
             'news' => $news,

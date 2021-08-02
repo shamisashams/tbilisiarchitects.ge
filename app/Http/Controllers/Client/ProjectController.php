@@ -14,16 +14,16 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $projects = Project::where('status', true)->paginate(9);
-
-
+        $projects = Project::where('status', true)->orderBy('created_at', 'desc')->paginate(9);
+        
         return view('client.pages.project.index', [
             'projects' => $projects
         ]);
     }
 
-    public function view(string $locale,int $id){
-        $project=Project::where(['id'=>$id,'status'=>true])->first();
+    public function view(string $locale, int $id)
+    {
+        $project = Project::where(['id' => $id, 'status' => true])->first();
         return view('client.pages.project.details', [
             'project' => $project
         ]);

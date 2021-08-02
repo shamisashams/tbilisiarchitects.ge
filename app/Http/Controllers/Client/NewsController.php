@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $news = News::where('status', true)->paginate(9);
+        $news = News::where('status', true)->orderBy('created_at','desc')->paginate(9);
 
         return view('client.pages.news.index', [
             'news' => $news

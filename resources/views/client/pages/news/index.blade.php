@@ -33,7 +33,7 @@
                 <div
                     class="title">{{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}</div>
                 <div class="paragraph">
-                    {!!$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title!!}
+                    {!!$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description!!}
                 </div>
             </a>
         @endforeach

@@ -187,8 +187,15 @@ img {
 }
 
 .news_page {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
 }
 
 .news_page .arr {
@@ -198,11 +205,11 @@ img {
 }
 
 .news_page #prev_news {
-    top: -30px;
+    top: 0;
 }
 
 .news_page #next_news {
-    bottom: -50px;
+    bottom: 30px;
 }
 
 .news_vertical_slider {
@@ -210,24 +217,26 @@ img {
     margin: auto;
     width: 100%;
     overflow: hidden;
+    margin-top: -50px;
 }
 
 .news_page .arr svg {
     transition: 0.3s;
     opacity: 0.3;
 }
+.news_page .arr:hover svg {
+    opacity: 1;
+}
 
 .news_vertical_slider .slide {
-    width: 963px;
     margin: auto;
     text-align: center;
 }
 
 .news_vertical_slider .slide .img {
-    width: 963px;
+    width: 800px;
     margin: auto;
-    height: 608px;
-    margin-top: 40px;
+    height: 500px;
     margin-bottom: 25px;
 }
 
@@ -238,7 +247,7 @@ img {
 }
 
 .news_vertical_slider .slide .paragraph {
-    width: 963px;
+    width: 800px;
     margin: auto;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -652,12 +661,40 @@ img {
 }
 
 @media screen and (max-height: 900px) {
+    .news_page {
+        height: calc(100vh - 119px);
+    }
     .news_vertical_slider .slide .img {
-        height: 470px;
+        width: 662px;
+        height: 400px;
+    }
+    .news_vertical_slider .slide .paragraph {
+        max-width: 662px;
     }
 }
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 800px) {
     .news_vertical_slider .slide .img {
-        height: 404px;
+        width: 541px;
+        height: 354px;
+        margin-bottom: 13px;
+    }
+    .news_vertical_slider .slide .paragraph {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .news_vertical_slider .slide .img {
+        width: 90%;
+        /* height: 400px; */
+    }
+
+    .news_vertical_slider .slide .paragraph {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .news_page {
+        height: calc(100vh - 65px);
     }
 }

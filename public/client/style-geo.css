@@ -643,8 +643,10 @@ img {
     .navbar .nav_item {
         margin: 10px 0;
     }
-
-    .project_details {
-        margin-top: 141px;
+    .news_page,
+    .project_page,
+    .project_details,
+    .about_content {
+        margin-top: 150px;
     }
 }

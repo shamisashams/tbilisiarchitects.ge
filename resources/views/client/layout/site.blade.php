@@ -7,9 +7,9 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
     @if(\App\Models\Language::getLocaleById(app()->getLocale())=="ge")
-        <link rel="stylesheet" href="/client/style-geo.css"/>
+        <link rel="stylesheet" href="/client/style-geo.css?v={{time()}}"/>
     @else
-        <link rel="stylesheet" href="/client/style.css"/>
+        <link rel="stylesheet" href="/client/style.css?v={{time()}}"/>
     @endif
     <title>Tbilisi Architect</title>
     @yield('subhead')
@@ -32,7 +32,7 @@
         type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
-    <script src="{{asset('client/general.js')}}"></script>
+    <script src="{{asset('client/general.js?v='.time())}}"></script>
     <script src="{{asset('client/slide.js')}}"></script>
     <script src="{{asset('client/heroslide.js')}}"></script>
 @endsection

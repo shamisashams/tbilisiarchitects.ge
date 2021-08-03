@@ -45,10 +45,10 @@
                         @endif
                     </div>
                     <a class="title" style="outline: none" href="{{locale_route('news.details',$singleNews->id)}}">
-                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}tyjndghjdfghjdfhgjdfhj
+                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->title: $singleNews->language()->title}}
                     </a>
                     <div class="paragraph">
-                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque voluptatum vitae nobis ad fugit optio velit asperiores aut, quis natus recusandae dolorum exercitationem architecto doloribus mollitia expedita nemo rerum officia.
+                        {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description}}
                     </div>
                     @if($key==count($news)-1)
                         <a href="{{locale_route('client.news.index')}}" class="see_all">{{__('client.see_all')}}</a>

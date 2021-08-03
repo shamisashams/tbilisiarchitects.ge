@@ -51,9 +51,9 @@
                         {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description}}
                     </div>
                     @if($key==count($news)-1)
-                        <a href="{{locale_route('client.news.index')}}" class="see_all">See all</a>
+                        <a href="{{locale_route('client.news.index')}}" class="see_all">{{__('client.see_all')}}</a>
                     @else
-                        <a href="{{locale_route('client.news.index')}}" class="see_all" style="opacity: 0">See all</a>
+                        <a href="{{locale_route('client.news.index')}}" class="see_all" style="opacity: 0">{{__('client.see_all')}}</a>
                     @endif
                 </div>
             @endforeach

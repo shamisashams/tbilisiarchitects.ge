@@ -33,6 +33,7 @@
                 />
             </svg>
         </button>
+
         <div class="news_vertical_slider flex center">
             @foreach($news as $key=>$singleNews)
                 <div class="slide">

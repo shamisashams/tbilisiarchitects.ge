@@ -16,3 +16,4 @@
     <a href="{{locale_route('client.about')}}" class="nav_item {{str_contains(request()->path(),substr(parse_url(locale_route('client.about'), PHP_URL_PATH), 1))?"active":""}}">@lang('client.about')</a>
     <a href="{{locale_route('client.contact')}}" class="nav_item {{str_contains(request()->path(),substr(parse_url(locale_route('client.contact'), PHP_URL_PATH), 1))?"active":""}}">@lang('client.contact')</a>
 </div>
+<div class="menu_bar"></div>

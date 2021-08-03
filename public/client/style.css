@@ -650,3 +650,16 @@ img {
         margin-top: 150px;
     }
 }
+
+@media screen and (max-height: 900px) {
+    .news_vertical_slider .slide .img {
+        height: 470px;
+        width: 800px;
+    }
+}
+@media screen and (max-height: 700px) {
+    .news_vertical_slider .slide .img {
+        width: 603px;
+        height: 404px;
+    }
+}

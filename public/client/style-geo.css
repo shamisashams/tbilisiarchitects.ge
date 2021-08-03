@@ -643,8 +643,21 @@ img {
     .navbar .nav_item {
         margin: 10px 0;
     }
+    .news_page,
+    .project_page,
+    .project_details,
+    .about_content {
+        margin-top: 150px;
+    }
+}
 
-    .project_details {
-        margin-top: 141px;
+@media screen and (max-height: 900px) {
+    .news_vertical_slider .slide .img {
+        height: 470px;
+    }
+}
+@media screen and (max-height: 700px) {
+    .news_vertical_slider .slide .img {
+        height: 404px;
     }
 }

@@ -155,6 +155,7 @@ img {
     position: fixed;
     left: 60px;
     bottom: 47px;
+    z-index: 1000;
 }
 
 .social_media a {
@@ -234,9 +235,9 @@ img {
 }
 
 .news_vertical_slider .slide .img {
-    width: 800px;
+    width: 835px;
     margin: auto;
-    height: 500px;
+    height: 517px;
     margin-bottom: 25px;
 }
 
@@ -665,8 +666,8 @@ img {
         height: calc(100vh - 119px);
     }
     .news_vertical_slider .slide .img {
-        width: 662px;
-        height: 400px;
+        width: 687px;
+        height: 421px;
     }
     .news_vertical_slider .slide .paragraph {
         max-width: 662px;

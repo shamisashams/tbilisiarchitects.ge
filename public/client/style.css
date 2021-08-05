@@ -155,6 +155,7 @@ img {
     position: fixed;
     left: 60px;
     bottom: 47px;
+    z-index: 1000;
 }
 
 .social_media a {

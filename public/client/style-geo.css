@@ -421,7 +421,7 @@ img {
 }
 
 .project_details_slider .slide .paragraph {
-    max-width: 286px;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -447,6 +447,9 @@ img {
         padding: 3px;
         margin-right: 0;
     }
+    .project_details_slider .slide .paragraph {
+    max-width: 90%;
+}
 }
 
 @media screen and (max-width: 1000px) {

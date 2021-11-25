@@ -7,9 +7,9 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
     @if(\App\Models\Language::getLocaleById(app()->getLocale())=="ge")
-        <link rel="stylesheet" href="/client/style-geo.css?v={{time()}}"/>
+        <link rel="stylesheet" href="/client/style-geo.css?v=1.{{time()}}"/>
     @else
-        <link rel="stylesheet" href="/client/style.css?v={{time()}}"/>
+        <link rel="stylesheet" href="/client/style.css?v=1.{{time()}}"/>
     @endif
     <title>Tbilisi Architect</title>
     @yield('subhead')

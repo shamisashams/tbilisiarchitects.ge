@@ -31,6 +31,7 @@
                 <div class="slide">
                     <div class="img">
                         <img src="{{url($file->path . '/'.$file->title)}}" alt="">
+                        <!-- <iframe src="https://www.youtube.com/embed/FuzFc209vzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                     </div>
                 </div>
             @endforeach

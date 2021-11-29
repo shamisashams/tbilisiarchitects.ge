@@ -379,10 +379,16 @@ img {
 }
 
 .project_details .img {
-    max-height: 420px;
-    max-width: 588px;
+    height: 420px;
+    width: 588px;
+    overflow: hidden;
 }
-
+.project_details .img img,
+.project_details .img iframe {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+}
 .project_details_slider {
     display: flex;
     align-items: center;

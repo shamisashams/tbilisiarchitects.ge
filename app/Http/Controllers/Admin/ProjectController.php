@@ -79,6 +79,7 @@ class ProjectController extends Controller
     {
         $data = [
             'status' => (bool)$request['status'],
+            'video_link' => $request['video_link'],
             'title' => $request['title'],
             'description' => $request['description'],
             'content' => $request['content'],
@@ -149,8 +150,10 @@ class ProjectController extends Controller
      */
     public function update(string $locale, int $id, ProjectRequest $request)
     {
+
         $data = [
             'status' => (bool)$request['status'],
+            'video_link' => $request['video_link'],
             'title' => $request['title'],
             'description' => $request['description'],
             'content' => $request['content'],

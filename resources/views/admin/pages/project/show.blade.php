@@ -49,6 +49,10 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>@lang('admin.video_link')</td>
+                            <td>{{$project->video_link}}</td>
+                        </tr>
+                        <tr>
                             <td>@lang('admin.created_at')</td>
                             <td>{{\Carbon\Carbon::parse($project->created_at)}}</td>
                         </tr>

@@ -35,6 +35,17 @@
                                 </li>
                             @endforeach
                         </ul>
+                        <div class="input-field col s12">
+                            {!! Form::text('video_link',$project->video_link ,['class' => 'validate '. $errors->has('video_link') ? '' : 'valid']) !!}
+                            {!! Form::label('video_link',__('admin.video_link')) !!}
+                            @error('url')
+                            <small class="errorTxt4">
+                                <div class="error">
+                                    {{$message}}
+                                </div>
+                            </small>
+                            @enderror
+                        </div>
                         @foreach($languages as $key => $language)
                             <div id="lang-{{$key}}" class="col s12  mt-5">
                                 <div class="input-field ">

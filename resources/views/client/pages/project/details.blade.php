@@ -27,11 +27,17 @@
                     {!!$project->language(app()->getLocale())? $project->language(app()->getLocale())->content: $project->language()->content!!}
                 </div>
             </div>
+            @if($project->video_link)
+                <div class="slide">
+                    <div class="img">
+                        <iframe src="https://www.youtube.com/embed/{{$project->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            @endif
             @foreach($project->files as $file)
                 <div class="slide">
                     <div class="img">
                         <img src="{{url($file->path . '/'.$file->title)}}" alt="">
-                        <!-- <iframe src="https://www.youtube.com/embed/FuzFc209vzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                     </div>
                 </div>
             @endforeach

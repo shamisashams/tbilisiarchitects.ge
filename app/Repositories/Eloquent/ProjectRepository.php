@@ -45,7 +45,8 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
             DB::connection()->beginTransaction();
 
             $data = [
-                'status' => $attributes['status']
+                'status' => $attributes['status'],
+                'video_link' => $attributes['video_link']
             ];
 
             $this->model = parent::create($data);
@@ -83,9 +84,9 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
 
         try {
             DB::connection()->beginTransaction();
-
             $attributes = [
-                'status' => $data['status']
+                'status' => $data['status'],
+                'video_link' => $data['video_link'],
             ];
 
             $this->model = parent::update($id, $attributes);
@@ -113,7 +114,6 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
 
             return $this->model;
         } catch (\PDOException $e) {
-            dd($e);
             DB::connection()->rollBack();
         }
     }

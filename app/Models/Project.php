@@ -44,7 +44,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'status',
+        'status', 'video_link'
     ];
 
     public function getFilterScopes(): array

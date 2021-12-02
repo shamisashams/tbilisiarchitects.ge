@@ -46,7 +46,7 @@ class ProjectRequest extends FormRequest
         if ($this->method !== 'GET') {
             $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
             $data ['description.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['content.' . $defaultLanguage->id] = 'required|string|max:1024';
+            $data ['content.' . $defaultLanguage->id] = 'required|string|max:20240';
 
         }
         return $data;

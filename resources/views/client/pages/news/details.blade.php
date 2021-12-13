@@ -35,14 +35,14 @@
                 </div>
             @endforeach
         </div>
-        <div class="arrows">
-            <button id="prev_content">
-                <img src="/client/img/icons/arrows/1.png" alt=""/>
-            </button>
-            <button id="next_content">
-                <img src="/client/img/icons/arrows/2.png" alt=""/>
-            </button>
-        </div>
+       
     </div>
-
+    <div class="slider_arrows arrows">
+        <button id="prev_content">
+            <img src="/client/img/icons/arrows/1.png" alt=""/>
+        </button>
+        <button id="next_content">
+            <img src="/client/img/icons/arrows/2.png" alt=""/>
+        </button>
+    </div>
 @endsection

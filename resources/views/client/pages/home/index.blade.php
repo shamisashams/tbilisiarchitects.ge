@@ -36,26 +36,28 @@
                     <div class="paragraph">
                         {{$singleNews->language(app()->getLocale())? $singleNews->language(app()->getLocale())->description: $singleNews->language()->description}}
                     </div>
-                    @if($key==count($news)-1)
-                        <!-- <a href="{{locale_route('client.news.index')}}" class="see_all">{{__('client.see_all')}}</a> -->
-                    @else
-                        <!-- <a href="{{locale_route('client.news.index')}}" class="see_all" style="opacity: 0">{{__('client.see_all')}}</a> -->
+                @if($key==count($news)-1)
+                    <!-- <a href="{{locale_route('client.news.index')}}" class="see_all">{{__('client.see_all')}}</a> -->
+                @else
+                    <!-- <a href="{{locale_route('client.news.index')}}" class="see_all" style="opacity: 0">{{__('client.see_all')}}</a> -->
                     @endif
                 </div>
             @endforeach
         </div>
-        <div class="pagination_arrow">
-            <div class=" arrows">
-                <button >
-                    <img src="/client/img/icons/arrows/1.png" alt=""/>
-                </button>
-                <button>
-                    <img src="/client/img/icons/arrows/2.png" alt=""/>
-                </button>
-            </div>
-        </div>
-        <div class="pagination_frac">
-            <span>01</span>/<span>10</span>
-        </div>
+        {{ $news->appends(request()->input())->links('client.pagination') }}
+
+{{--        <div class="pagination_arrow">--}}
+{{--            <div class=" arrows">--}}
+{{--                <button>--}}
+{{--                    <img src="/client/img/icons/arrows/1.png" alt=""/>--}}
+{{--                </button>--}}
+{{--                <button>--}}
+{{--                    <img src="/client/img/icons/arrows/2.png" alt=""/>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="pagination_frac">--}}
+{{--            <span>01</span>/<span>10</span>--}}
+{{--        </div>--}}
     </div>
 @endsection

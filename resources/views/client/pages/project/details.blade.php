@@ -19,14 +19,16 @@
 @endsection
 @section('wrapper')
 
-    <div class="project_details">
-        <div class="project_details_slider">
-            <div class="slide">
-                <div class="title">{{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}</div>
+    <div class="project_details">  
+        <div class="head">
+                 <div class="title">{{$project->language(app()->getLocale())? $project->language(app()->getLocale())->title: $project->language()->title}}</div>
                 <div class="paragraph">
                     {!!$project->language(app()->getLocale())? $project->language(app()->getLocale())->content: $project->language()->content!!}
                 </div>
-            </div>
+        </div> 
+   
+        <div class="project_details_slider">
+         
             @if($project->video_link)
                 <div class="slide">
                     <div class="img">

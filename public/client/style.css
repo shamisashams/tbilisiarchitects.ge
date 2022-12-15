@@ -145,7 +145,7 @@ img {
 }
 
 .logo {
-    position: fixed;
+    position: absolute;
     left: 60px;
     top: 37px;
 }
@@ -305,13 +305,13 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 30px;
-    grid-column-gap: 150px;
+    grid-column-gap: 60px;
     margin-bottom: 52px;
 }
 
 .project_grid .item .img {
     width: 100%;
-    height: 166px;
+    height: 230px;
     margin-bottom: 15px;
 }
 
@@ -325,6 +325,106 @@ img {
     position: relative;
 }
 
+.projectTabs {
+    position: absolute;
+    top: 62px;
+    left: 40px;
+}
+.projectTabBtn {
+    display: block;
+    opacity: 0.5;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    position: relative;
+}
+.projectTabBtn::before {
+    top: 7px;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background: #000;
+    border-radius: 50%;
+    opacity: 0;
+}
+.projectTabBtn.active {
+    opacity: 1;
+    padding-left: 15px;
+    font-weight: bold;
+}
+.projectTabBtn.active::before {
+    opacity: 1;
+}
+.project_page .filterBtn {
+    display: none;
+}
+.closeProjectTabs {
+    display: none;
+}
+@media screen and (max-width: 1500px) {
+    .project_page .filterBtn {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 40px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .projectTabs {
+        transform: translateX(-100%);
+        left: 0;
+        background: #fff;
+        padding: 20px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        transition: 0.3s;
+    }
+    .projectTabs.show {
+        transform: translateX(0);
+    }
+    .projectTabBtn {
+        margin-bottom: 18px;
+    }
+    .closeProjectTabs {
+        display: block;
+        position: absolute;
+        top: 6px;
+        right: 8px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .project_page .filterBtn {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 13px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .projectContent {
+        padding-top: 40px;
+    }
+}
+.projectContent {
+    display: none;
+}
+.projectContent.active {
+    display: block;
+}
+.projectContent .head {
+    text-align: center;
+    padding-bottom: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: 20px;
+    font-weight: bold;
+    max-width: 963px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+}
+.project_page .social_media {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
 .project_page .pagination_arrows button {
     margin: 0 25px;
     transition: 0.3s;
@@ -393,7 +493,7 @@ img {
 }
 
 .project_details .img {
-    height: 70vh;
+    height: 60vh;
     width: 80vw;
     overflow: hidden;
 }
@@ -441,28 +541,27 @@ img {
 .slider_arrows button:hover {
     opacity: 1;
 }
-
-.project_details_slider .slide .title {
+.project_details .head {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.project_details .title {
     font-size: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 11px;
 }
 
-.project_details_slider .slide .paragraph {
-    width: 586px;
+.project_details .paragraph {
+    max-width: 586px;
     margin: auto;
-    text-align: justify;
-    height: 63vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
     padding-right: 10px;
 }
-.project_details_slider .slide .paragraph::-webkit-scrollbar {
+.project_details .paragraph::-webkit-scrollbar {
     width: 3px;
 }
-.project_details_slider .slide .paragraph::-webkit-scrollbar-track {
+.project_details .paragraph::-webkit-scrollbar-track {
     background-color: #fff;
 }
-.project_details_slider .slide .paragraph::-webkit-scrollbar-thumb {
+.project_details .paragraph::-webkit-scrollbar-thumb {
     background-color: rgba(163, 163, 163, 0.432);
 }
 
@@ -565,6 +664,12 @@ img {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
     }
+    .project_details .title {
+        font-size: 19px;
+    }
+    .project_details .img {
+        height: 50vh;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -657,7 +762,7 @@ img {
         flex-direction: column;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.952);
         transition: 0.3s;
         transform: translateY(-100%);
         margin: 0;

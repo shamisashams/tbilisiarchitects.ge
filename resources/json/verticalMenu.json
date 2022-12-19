@@ -41,6 +41,13 @@
             "i18n": "news",
             "icon": "apps",
             "slug": "news"
+        },
+        {
+            "url": "category.index",
+            "name": "category",
+            "i18n": "category",
+            "icon": "apps",
+            "slug": "category"
         }
     ]
 }

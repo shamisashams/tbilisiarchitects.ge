@@ -62,6 +62,10 @@ Route::prefix('{locale?}')
                 Route::resource('setting', SettingController::class);
 
 
+                Route::resource('category', CategoryController::class);
+                Route::get('category/{category}/destroy', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
             });
         });
 
@@ -69,7 +73,7 @@ Route::prefix('{locale?}')
         Route::get('news/details/{id}', [\App\Http\Controllers\Client\NewsController::class, 'view'])->name('news.details');
         Route::get('news', [\App\Http\Controllers\Client\NewsController::class, 'index'])->name('client.news.index');
 
-        Route::get('projects', [App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
+        Route::get('projects/{slug?}', [App\Http\Controllers\Client\ProjectController::class, 'index'])->name('client.project.index');
         Route::get('projects/details/{id}', [App\Http\Controllers\Client\ProjectController::class, 'view'])->name('client.project.details');
 
         Route::get('about', [\App\Http\Controllers\Client\AboutController::class, 'index'])->name('client.about');

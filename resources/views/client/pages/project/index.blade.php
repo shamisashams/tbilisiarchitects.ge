@@ -6,7 +6,7 @@
 @endsection
 
 @section('wrapper')
-    <div class="project_page">    
+    <div class="project_page">
         <button class="filterBtn">
            <img style="margin-bottom: -5px;" width="22px" src="/client/img/icons/filter.png" alt=""> Filter
         </button>
@@ -14,9 +14,12 @@
         <button class="closeProjectTabs">
         <img width="10px" src="/client/img/icons/close.png" alt="">
         </button>
-            <button class="projectTabBtn active">Current projects</button>
+            {{--<button class="projectTabBtn active">Current projects</button>
             <button class="projectTabBtn">Apartment buildings</button>
-            <button class="projectTabBtn">Individual residental houses</button>
+            <button class="projectTabBtn">Individual residental houses</button>--}}
+            @foreach($categories as $_category)
+                <a href="{{locale_route('client.project.index',$_category->slug)}}" class="projectTabBtn {{$category->id == $_category->id?'active':''}}">{{$category->language(app()->getLocale())->title}}</a>
+            @endforeach
             <!-- <button class="projectTabBtn">Competitions</button>
             <button class="projectTabBtn">Public projects</button>
             <button class="projectTabBtn">Public projects</button>
@@ -25,7 +28,7 @@
 
         <div class="projectContent active">
             <div class="head">
-                Current projects
+                {{$category->language()->title}}
             </div>
              <div class="project_grid">
             @foreach($projects as $project)
@@ -45,7 +48,7 @@
             @endforeach
         </div>
         </div>
-        <div class="projectContent">
+        {{--<div class="projectContent">
             <div class="head">
             Apartment buildings
             </div>
@@ -87,9 +90,9 @@
                     </div>
                 </a>
             @endforeach
+        </div>--}}
         </div>
-        </div>
-       
+
 
         {{$projects->links('vendor.pagination.custom')}}
         <div class="social_media flex">

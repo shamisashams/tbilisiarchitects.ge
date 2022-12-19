@@ -28,6 +28,19 @@
                                 <span>{{__('admin.status')}}</span>
                             </label>
                         </div>
+
+                        <div class="col s12 mb-2">
+                            <label>
+                                <select name="category_id">
+                                    <option value=""></option>
+                                    @foreach($categories as $category)
+                                        <option {{$category->id == $project->category_id?'selected':''}} value="{{$category->id}}">{{$category->language(app()->getLocale())->title}}</option>
+                                    @endforeach
+                                </select>
+                                <span>{{__('admin.status')}}</span>
+                            </label>
+                        </div>
+
                         <ul class="tabs">
                             @foreach($languages as $key => $language)
                                 <li class="tab col ">

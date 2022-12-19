@@ -27,25 +27,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class Project extends Model
+class Category extends Model
 {
-    use HasFactory, softDeletes, ScopeFilter;
+    use HasFactory, ScopeFilter;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'categories';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'status', 'video_link','category_id'
+    protected $guarded = [
+        'created_at',
     ];
+
+    protected $fillable = ['slug'];
 
     public function getFilterScopes(): array
     {
@@ -65,6 +67,14 @@ class Project extends Model
             'title' => [
                 'hasParam' => true,
                 'scopeMethod' => 'titleLanguage'
+            ],
+            'description' => [
+                'hasParam' => true,
+                'scopeMethod' => 'description'
+            ],
+            'content' => [
+                'hasParam' => true,
+                'scopeMethod' => 'content'
             ]
         ];
     }
@@ -76,7 +86,7 @@ class Project extends Model
      */
     public function languages(): HasMany
     {
-        return $this->hasMany(ProjectLanguage::class, 'project_id');
+        return $this->hasMany(CategoryLanguage::class, 'category_id');
     }
 
     /**
@@ -92,19 +102,6 @@ class Project extends Model
             $locale = app()->getLocale();
         }
         return $this->languages()->where('language_id', $locale)->first();
-    }
-
-    /**
-     * @param $query
-     * @param $title
-     *
-     * @return mixed
-     */
-    public function scopeCityLanguage($query, $title)
-    {
-        return $query->whereHas('city', function ($query) use ($title) {
-            return $query->titleLanguage($title);
-        });
     }
 
     /**

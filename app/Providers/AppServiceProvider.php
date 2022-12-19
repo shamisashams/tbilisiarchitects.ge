@@ -9,7 +9,9 @@
 namespace App\Providers;
 
 use App\Breadcrumbs\Breadcrumbs;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -38,5 +40,7 @@ class AppServiceProvider extends ServiceProvider
         Request::macro('breadcrumbs',function () {
             return new Breadcrumbs($this);
         });
+
+        View::share('categories',Category::with('languages')->get());
     }
 }

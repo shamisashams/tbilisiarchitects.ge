@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\City;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -12,12 +13,16 @@ class ProjectController extends Controller
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request,$locale,$slug = null)
     {
-        $projects = Project::where('status', true)->orderBy('created_at', 'desc')->paginate(9);
-        
+        $category = Category::with('languages')->where('slug',$slug)->firstOrFail();
+        $projects = Project::where('status', true)
+            ->where('category_id',$category->id)
+            ->orderBy('created_at', 'desc')->paginate(9);
+
         return view('client.pages.project.index', [
-            'projects' => $projects
+            'projects' => $projects,
+            'category' => $category
         ]);
     }
 

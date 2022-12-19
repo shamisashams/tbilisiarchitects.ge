@@ -10,9 +10,14 @@
 namespace App\Repositories\Eloquent;
 
 
+use App\Models\Category;
+use App\Models\CategoryLanguage;
+use App\Models\News;
+use App\Models\NewsLanguage;
 use App\Models\Project;
 use App\Models\ProjectLanguage;
 use App\Repositories\Eloquent\Base\BaseRepository;
+use App\Repositories\NewsRepositoryInterface;
 use App\Repositories\ProjectRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 
@@ -20,14 +25,14 @@ use Illuminate\Support\Facades\DB;
  * Class CityRepository
  * @package App\Repositories\Eloquent
  */
-class ProjectRepository extends BaseRepository implements ProjectRepositoryInterface
+class CategoryRepository extends BaseRepository
 {
     /**
      * ProjectRepository constructor.
      *
-     * @param \App\Models\Project $model
+     * @param \App\Models\News $model
      */
-    public function __construct(Project $model)
+    public function __construct(Category $model)
     {
         parent::__construct($model);
     }
@@ -37,17 +42,17 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
      *
      * @param array $attributes
      *
-     * @return \App\Models\Project
+     * @return \App\Models\News
      */
-    public function create(array $attributes = []): Project
+    public function create(array $attributes = []): Category
     {
+        //dd($attributes);
         try {
             DB::connection()->beginTransaction();
 
             $data = [
                 'status' => $attributes['status'],
-                'video_link' => $attributes['video_link'],
-                'category_id' => $attributes['category_id']
+                'slug' => $attributes['slug']
             ];
 
             $this->model = parent::create($data);
@@ -58,8 +63,6 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
                 $projectLanguages [] = [
                     'language_id' => $language['id'],
                     'title' => $attributes['title'][$language['id']],
-                    'description' => $attributes['description'][$language['id']],
-                    'content' => $attributes['content'][$language['id']],
                 ];
             }
 
@@ -80,15 +83,14 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
      * @param array $data
      *
      */
-    public function update(int $id, array $data = []): Project
+    public function update(int $id, array $data = []): Category
     {
-
         try {
             DB::connection()->beginTransaction();
+
             $attributes = [
                 'status' => $data['status'],
-                'video_link' => $data['video_link'],
-                'category_id' => $data['category_id']
+                'slug' => $data['slug']
             ];
 
             $this->model = parent::update($id, $attributes);
@@ -97,17 +99,13 @@ class ProjectRepository extends BaseRepository implements ProjectRepositoryInter
                 if (null !== $this->model->language($language['id'])) {
                     $this->model->language($language['id'])->update([
                         'title' => $data['title'][$language['id']],
-                        'description' => $data['description'][$language['id']],
-                        'content' => $data['content'][$language['id']],
                     ]);
                 }
                 else{
-                    ProjectLanguage::create([
-                        'project_id'=>$this->model->id,
+                    CategoryLanguage::create([
+                        'category_id'=>$this->model->id,
                         'language_id' => $language['id'],
                         'title'=>$data['title'][$language['id']],
-                        'description' => $data['description'][$language['id']],
-                        'content' => $data['content'][$language['id']],
                     ]);
                 }
             }

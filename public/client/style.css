@@ -360,7 +360,7 @@ img {
 .closeProjectTabs {
     display: none;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) {
     .project_page .filterBtn {
         display: block;
         position: absolute;

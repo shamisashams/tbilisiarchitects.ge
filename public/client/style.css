@@ -391,7 +391,7 @@ img {
         right: 8px;
     }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .project_page .filterBtn {
         display: block;
         position: absolute;
@@ -646,6 +646,26 @@ img {
 }
 
 /* project page */
+@media screen and (max-width: 1700px) {
+    .projectTabBtn {
+        width: 200px;
+    }
+    .project_grid {
+        width: 860px;
+        grid-column-gap: 30px;
+    }
+
+    /* 
+    .projectTabs {
+        left: 14px;
+    } */
+}
+@media screen and (max-width: 1400px) {
+    .project_grid {
+        width: 630px;
+       grid-template-columns: repeat(2, 1fr);
+    }
+}
 @media screen and (max-width: 1100px) {
     .project_grid {
         width: 90%;

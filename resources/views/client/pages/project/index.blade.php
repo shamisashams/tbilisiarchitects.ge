@@ -8,7 +8,7 @@
 @section('wrapper')
     <div class="project_page">
         <button class="filterBtn">
-           <img style="margin-bottom: -5px;" width="22px" src="/client/img/icons/filter.png" alt=""> Filter
+           <img style="margin-bottom: -5px;" width="22px" src="/client/img/icons/filter.png" alt=""> @lang('client.filter')
         </button>
         <div class="projectTabs ">
         <button class="closeProjectTabs">
@@ -27,9 +27,9 @@
         </div>
 
         <div class="projectContent active">
-            <div class="head">
+            {{--<div class="head">
                 {{$category->language()->title}}
-            </div>
+            </div>--}}
              <div class="project_grid">
             @foreach($projects as $project)
                 <a href="{{locale_route('client.project.details',$project->id)}}" class="item">

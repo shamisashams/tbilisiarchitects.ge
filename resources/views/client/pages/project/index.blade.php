@@ -18,7 +18,7 @@
             <button class="projectTabBtn">Apartment buildings</button>
             <button class="projectTabBtn">Individual residental houses</button>--}}
             @foreach($categories as $_category)
-                <a href="{{locale_route('client.project.index',$_category->slug)}}" class="projectTabBtn {{$category->id == $_category->id?'active':''}}">{{$category->language(app()->getLocale())->title}}</a>
+                <a href="{{locale_route('client.project.index',$_category->slug)}}" class="projectTabBtn {{$category->id == $_category->id?'active':''}}">{{$_category->language(app()->getLocale())->title}}</a>
             @endforeach
             <!-- <button class="projectTabBtn">Competitions</button>
             <button class="projectTabBtn">Public projects</button>

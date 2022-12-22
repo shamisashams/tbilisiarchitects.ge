@@ -91,6 +91,8 @@ class ProjectController extends Controller
 
         $project = $this->projectRepository->create($data);
 
+        $project->categories()->sync($request->post('category') ? $request->post('category') : []);
+
         // Save Files
         if ($request->hasFile('images')) {
             $project = $this->projectRepository->saveFiles($project->id, $request);
@@ -167,6 +169,8 @@ class ProjectController extends Controller
         ];
 
         $answer = $this->projectRepository->update($id, $data);
+
+        $answer->categories()->sync($request->post('category') ? $request->post('category') : []);
 
         // Update Files
         $this->projectRepository->saveFiles($id, $request);

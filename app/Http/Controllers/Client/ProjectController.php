@@ -16,8 +16,10 @@ class ProjectController extends Controller
     public function index(Request $request,$locale,$slug = null)
     {
         $category = Category::with('languages')->where('slug',$slug)->firstOrFail();
-        $projects = Project::where('status', true)
-            ->where('category_id',$category->id)
+        $projects = Project::query()->where('status', true)
+            ->whereHas('categories',function ($q)use ($category){
+                $q->where('categories.id',$category->id);
+            })
             ->orderBy('created_at', 'desc')->paginate(9);
 
         return view('client.pages.project.index', [

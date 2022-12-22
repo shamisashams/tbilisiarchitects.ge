@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/form-select2.css')}}">
 @endsection
 
+
+
 @section('content')
     <div class="row">
         <div class="col s12 m6 l6">
@@ -29,16 +31,27 @@
                             </label>
                         </div>
 
+                        <?php
+                        $ids = $project->categories->pluck("id")->toArray();
+                        ?>
+                        <p class="mb-1">@lang('admin.categories')</p>
                         <div class="col s12 mb-2">
-                            <label>
-                                <select name="category_id">
-                                    <option value=""></option>
+
+
                                     @foreach($categories as $category)
-                                        <option {{$category->id == $project->category_id?'selected':''}} value="{{$category->id}}">{{$category->language(app()->getLocale())->title}}</option>
+
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" name="category[]"
+                                                       value="{{$category->id}}" {{in_array($category->id,$ids) ? 'checked' : ''}}>
+                                                <span>{{$category->language()->title}}</span>
+                                            </label>
+                                        </div>
+
                                     @endforeach
-                                </select>
-                                <span>{{__('admin.status')}}</span>
-                            </label>
+
+
+
                         </div>
 
                         <ul class="tabs">
